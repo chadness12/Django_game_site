@@ -32,13 +32,13 @@
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item"> 
                                 <form class="form-newsletter" method="POST" action="#">
-                                    <input id="zavatra" type="text" placeholder="Rechercher ici..." list="listSearch">
+                                    <input id="zavatra" type="text" placeholder="Search" list="listSearch">
                                     <datalist id="listSearch">
                                     </datalist>
                                     <button class="btn-submit" onclick="search_game($('#zavatra').val())" type="button"><i class="fa fa-search"></i></button>
                                 </form>
                             </li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="#inscrire" data-toggle="modal"><i class="fa fa-pencil"></i> S'inscrire</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#inscrire" data-toggle="modal"><i class="fa fa-pencil"></i> Sign Up</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="index.html" data-scroll-nav="2"><i class="fa fa-envelope"></i> Contact</a></li>
                         </ul>
                     </div>
@@ -50,8 +50,8 @@
                 <section class="portfolio-block block-intro" >
                     <div class="container">
                         <div class="about-me">
-                            <p>Bienvenue <strong>sur</strong> G-Store</p>
-                            <a class="btn btn-primary" role="presentation" href="index.html" data-scroll-nav="1"><i class="fa fa-cart-plus" ></i> Achéter un jeu</a>
+                            <p>Welcome <strong>to</strong> G-Store</p>
+                            <a class="btn btn-primary" role="presentation" href="index.html" data-scroll-nav="1"></i>Game List</a>
                         </div>
                     </div>
                 </section>
@@ -62,8 +62,8 @@
                 <section class="portfolio-block projects-cards">
                     <div class="container">
                         <div class="heading">
-                            <h2 id="game">G-Store | Jeux</h2>
-                            <p class="text-muted card-text compte">Vous pouvez achéter tous les jeux que vous vouliez mais vous devez d'abord vous connectez ou créer un compte G-Store.</p>
+                            <h2 id="game">G-Store | List</h2>
+                            <p class="text-muted card-text compte">You can play any game you want, but you must first log in or create a G-Store account.</p>
                         </div>
                         <div class="row">
                             <div id="game_model"  class="col-md-6 col-lg-4">
@@ -88,7 +88,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-12 col-lg-5 offset-lg-1 text">
-                            <h3>Jeux de l'année</h3>
+                            <h3>Game of the year</h3>
                             <p> <u>Devil may cry 5</u> </p>
                         </div>
                         <div class="col-md-12 col-lg-5">
@@ -103,13 +103,13 @@
                 </div>
             </section>
 
-            <!--CONTACT START-->
+            <!--CONTACT START-->    
             <main class="page projects-page" data-scroll-index="2">
                 <section class="portfolio-block projects-cards">
                     <div class="container">
                             <div class="heading">
-                                    <h2 id="game" class="entcont">Entrer en contact</h2>
-                                    <p class="text-muted card-text compte">Si vous avez des questions ou des remarques, n'hésitez pas à nous contacter</p>
+                                    <h2 id="game" class="entcont">How to contact</h2>
+                                    <p class="text-muted card-text compte">If you have any questions or comments, please do not hesitate to contact us</p>
                             </div>
                         <div class="row">
                             <div class="offset-md-1 col-md-10">
@@ -118,15 +118,15 @@
                                         <div class="col-md-4 mb-50 icon-tel">
                                             <div class="item"> <span class="icon et-phone"></span>
                                                 <div class="cont">
-                                                    <p>+261320025500</p>
-                                                    <p class="pcontact">Téléphone</p> 
+                                                    <p>+82 010-0000-0000</p>
+                                                    <p class="pcontact">PhoneNumber</p> 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-50 icon-env">
                                             <div class="item"> <span class="icon et-envelope"></span>
                                                 <div class="cont">
-                                                    <p>ambatoroka.fsociety@gmail.com</p>
+                                                    <p>0000@gmail.com</p>
                                                     <p class="pcontact">Email</p> 
                                                 </div>
                                             </div>
@@ -134,8 +134,8 @@
                                         <div class="col-md-4 mb-50 icon-map">
                                             <div class="item"> <span class="icon et-map"></span>
                                                 <div class="cont">
-                                                    <p>Ambatoroka, Tananarive</p>
-                                                    <p class="pcontact">Adresse</p>
+                                                    <p>Seoul, Korea</p>
+                                                    <p class="pcontact">Address</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,6 +172,7 @@
                                 </div>
                                 <!-- Copyright -->
                                 <p style="color: #fff !important;">Copyright © 2019 by <a href="https://github.com/F-Society">FoyerSociety</a></p>
+                                <p style="color: #fff !important;">Remake © 2022 by <a href="https://github.com/chadness12/Django_game_site.git">1 TEAM</a></p>
                             </div>
                         </div>
                     </div>
@@ -216,25 +217,25 @@
                             <form  action="" method="post">
                              
                                 <div class="form-group">
-                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="nom" placeholder="Nom" required="required">
+                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="nom" placeholder="LastName" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="prenom" placeholder="Prénom" required="required">
+                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="prenom" placeholder="FirstName" required="required">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="mail" placeholder="Email" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="phone" placeholder="Téléphone" required="required">
+                                    <input type="text" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="phone" placeholder="PhoneNumber" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="password" placeholder="Mot de passe" required="required">
+                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="password" placeholder="Password" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="cpassword" placeholder="Confirmer le mot de passe" required="required">
+                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="cpassword" placeholder="Confirm Password" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="button" onclick="inscription(`{{ csrf_token }}`)"  name="csrfmiddlewaretoken"  style="border-radius: 25px !important;" class="btn btn-primary btn-block btn-lg" value="S'inscrire">
+                                    <input type="button" onclick="inscription(`{{ csrf_token }}`)"  name="csrfmiddlewaretoken"  style="border-radius: 25px !important;" class="btn btn-primary btn-block btn-lg" value="Sign Up">
                                 </div>
                                 <div>
                                 <p class="alert-danger" style="text-align: center !important" name="erreur"></p>
@@ -307,11 +308,11 @@
                 <div class="modal-dialog modal-login">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" style="font-weight: bold;">Achat d'un jeu</h4>
+                            <h4 class="modal-title" style="font-weight: bold;">You must Login to play the game</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div id="sary" class="col-md-6 col-lg-4">
-                            <div class="card border-0"><a href="#"><img src="" alt="" style="width: 425px; margin-left: 20px;" alt="Card Image" class=""></a></div>
+                            <div class="card border-0"><a href="#"><img src="" alt="" style="width: 425px; margin-left: 20px;" alt="Card Image" class=""></a></div> {% comment %} testtest {% endcomment %}
                         </div>
                         <div class="modal-body">
                             <form id="se_connecter" class="farany">
@@ -319,13 +320,15 @@
                                     <input type="email" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="mail" placeholder="Email" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="password" placeholder="Mot de passe" required="required">
+                                    <input type="password" class="form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" name="password" placeholder="Password" required="required">
                                 </div>
+                                 
                                 <div>
                                 <p class="alert-danger" style="text-align: center !important" name="erreur"></p>
                                 </div>
+                                <div style="display:none" class="test"></div>
                                 <div class="bouton form-group">
-                                    <input type="button" onclick="verifie_password($(this).parents('form'))" name="valider_se_connecter"  style="border-radius: 25px !important;" class="btn btn-primary btn-block btn-lg" value="Se connecter">
+                                    <input type="button" onclick="verifie_password($(this).parents('form'))" name="valider_se_connecter"  style="border-radius: 25px !important;" class="btn btn-primary btn-block btn-lg" value="Login">
                                     <label style="color:red;font-size:11;text-align: center"></label>
                                 </div>
                             </form>

@@ -12,6 +12,11 @@ class Game(models.Model):
     def __str__(self):
         return self.titre + ': ' + self.categorie
 
+class Ranking(models.Model):
+    titre = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,primary_key=True)
+    score = models.IntegerField()
+    
 
 class Phone(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
