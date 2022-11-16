@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: jgitchange 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jgitchange
+  template:
+    metadata:
+      labels:
+        app: jgitchange 
+    spec:
+      containers:
+        - name: jgitchange 
+          image: jieuntest.azurecr.io/jgitchange
+          ports:
+          - containerPort: 8000
