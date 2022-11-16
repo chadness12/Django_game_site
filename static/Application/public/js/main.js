@@ -109,8 +109,11 @@ function sInscrire(nom, prenom, mail, phone, password, csrf_token){
 function verifie_password(obj){
 	let mail = obj.find('input[name=mail]');
 	let password = obj.find('input[name=password]');
+	let title = document.getElementsByClassName("test")[0].innerText;
+
+	/* document.getElementsByClassName('test_class')[0].getAttribute('name') */
+	console.log(title);
 	let error = obj.find(' p[name=erreur]');
-	
 	if (/^[a-zA-Z]{1}[a-zA-Z_.0-9]{1,}@[a-z]{3,}.[a-z]{2,4}$/.test(mail.val())){
 		$.post(
 			'/connect',
@@ -143,18 +146,25 @@ function verifie_password(obj){
 					};
 
 					error.text('');
-					html = "<div class='form-group'>";
-					html += `<input type="text" class="token form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" placeholder="Votre numéro de token ${ops} (4 chiifres)" required="required">`;
-					html += "</div>";
-					but = obj.find(" .bouton"); // selectionneko le button
-					obj.append(html);
-					obj.append(but);
-					obj.find(' input[type=button]').attr('value', 'Confirmer Achat');
-					obj.find(' input[type=button]').removeAttr('onclick');
-					obj.find(' input[type=button]').click({mail: mail.val(), prod: obj.parents('.modal').find('img').attr('alt'), objet: obj.find(' input[type=button]')}, processAchat);
+					//html = "<div class='form-group'>";
+					//html += `<input type="text" class="token form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" placeholder="Votre numéro de token ${ops} (4 chiifres)" required="required">`;
+					//html += "</div>";
+					//but = obj.find(" .bouton"); // selectionneko le button
+					//obj.append(html);
+					//obj.append(but);
+					//obj.find(' input[type=button]').attr('value', 'Confirmer Achat');
+					//obj.find(' input[type=button]').removeAttr('onclick');
+					//obj.find(' input[type=button]').click({mail: mail.val(), prod: obj.parents('.modal').find('img').attr('alt'), objet: obj.find(' input[type=button]')}, processAchat);
+					sessionStorage.setItem("user_mail", mail.val());
 					mail.attr('disabled', 'disabled');
 					password.attr('disabled', 'disabled');
 					obj.find(" .modal-title")
+					var link = '/'+title;
+					
+    				window.location.href = link;       //웹개발할때 숨쉬듯이 작성할 코드
+    				window.location.replace(link);     // 이전 페이지로 못돌아감
+    				window.open(link); 
+					
 					//.html("Acheter le Jeu");
 				}
 				else{
@@ -199,7 +209,7 @@ $(function() {
 		Mmod = $('#play');
 		buy = $('#acheter');
 		mod = $('#game_model');
-		for (let i=0;i<dataP[0].length;i++){
+		for (let i=0;i<1;i++){
 			tmp = mod.clone();
 			tmp.attr('id', dataP[0][i][1])
 			tmp.css('display', 'block');
@@ -230,7 +240,8 @@ $(function() {
 			buyTmp.attr('id', 'acheter' + dataP[0][i][0]);
 			buyTmp.find('img').attr('src', `static/Application/${dataP[0][i][2]}`);
 			buyTmp.find('img').attr('alt', dataP[0][i][1]);
-
+			buyTmp.find('.test').text(dataP[0][i][1]);
+			
 			buy.after(buyTmp);
 		}
 		buy.remove();

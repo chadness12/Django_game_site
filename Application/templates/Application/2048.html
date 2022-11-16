@@ -10,6 +10,7 @@
   <link rel="apple-touch-icon" href="{% static 'Application/public/2048_images/apple-touch-icon.png' %}">
   <link rel="apple-touch-startup-image" href="{% static 'Application/public/2048_images/apple-touch-startup-image-640x1096.png' %}" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
   <link rel="apple-touch-startup-image" href="{% static 'Application/public/2048_images/apple-touch-startup-image-640x920.png' %}"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -17,13 +18,13 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
-<body>
+<body class="{{ csrf_token }}">
   <div class="container">
     <div class="heading">
       <h1 class="title">2048</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
-        <div class="best-container">0</div>
+        <div class="best-container" id="max_score">0</div>
       </div>
     </div>
 
@@ -88,6 +89,7 @@
   <script language="javascript">
       window.addEventListener("beforeunload", function(event){window.localStorage.clear()})
   </script>
+  
   <script src="{% static 'Application/public/js/2048/bind_polyfill.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/classlist_polyfill.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/animframe_polyfill.js' %}"></script>
@@ -95,8 +97,11 @@
   <script src="{% static 'Application/public/js/2048/html_actuator.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/grid.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/tile.js' %}"></script>
+  <script src="{% static 'Application/public/js/jquery.min.js' %}"></script>
+  <script src="{% static 'Application/public/js/jquery-ui.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/local_storage_manager.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/game_manager.js' %}"></script>
   <script src="{% static 'Application/public/js/2048/application.js' %}"></script>
+  {% comment %} <script src="{% static 'Application/public/js/main.js' %}"></script>  {% endcomment %}
 </body>
 </html>

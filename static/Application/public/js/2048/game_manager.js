@@ -4,6 +4,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
+  
+  //setTimeout(() => console.log("after"), 3000);
+  
   this.startTiles     = 2;
 
   this.inputManager.on("move", this.move.bind(this));
@@ -42,10 +45,12 @@ GameManager.prototype.setup = function () {
     this.score       = previousState.score;
     this.over        = previousState.over;
     this.won         = previousState.won;
+    //this.bestScore   = previousState.bestScore;
     this.keepPlaying = previousState.keepPlaying;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
+    //this.bestScore   = this.storageManager.bestScore;
     this.over        = false;
     this.won         = false;
     this.keepPlaying = false;
@@ -55,6 +60,7 @@ GameManager.prototype.setup = function () {
   }
 
   // Update the actuator
+  setTimeout(() => "", 2000);
   this.actuate();
 };
 
@@ -77,12 +83,47 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.storageManager.getBestScore() < this.score) {
-    this.storageManager.setBestScore(this.score);
+  console.log(this.storageManager.getBestScore());
+   if (this.storageManager.getBestScore() < this.score) {
+    
+    this.storageManager.set_new_BestScore(this.score);
+  } 
+  else {
+    this.storageManager.setBestScore();
+    //console.log("game actuate");
   }
-
+  //this.storageManager.bestScore=this.score;
+  /* if (this.storageManager.bestScore < this.score) {
+    this.storageManager.bestScore=this.score;
+  } */
+  
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
+    //if (this.storageManager.getBestScore() < this.score){
+    if (this.storageManager.bestScore < this.score){
+      let csrf_token = $('body').attr('class');
+      this.user_mail = sessionStorage.getItem('user_mail');
+      $.post(
+        '/set_best_score',
+        {
+          user_mail : this.user_mail,
+          csrfmiddlewaretoken: csrf_token,
+          score : this.score,
+          title : "2048"
+        },
+        //set_best_score
+        
+      );
+      /* function set_best_score(dataP){
+        console.log(dataP);
+        var bestScore=0
+        //console.log(dataP[0][0][0]);
+        //console.log(dataP[0][0]);
+        //console.log(dataP[0].length);
+        if(dataP[0].length!=0) bestScore= dataP[0][0][0];
+        else bestScore=0;
+      } */
+    }
     this.storageManager.clearGameState();
   } else {
     this.storageManager.setGameState(this.serialize());
@@ -93,6 +134,7 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
+    //bestScore: this.storageManager.bestScore,
     terminated: this.isGameTerminated()
   });
 
@@ -103,6 +145,7 @@ GameManager.prototype.serialize = function () {
   return {
     grid:        this.grid.serialize(),
     score:       this.score,
+    //best_score:  this.storageManager.bestScore, // 원래 없던 거 
     over:        this.over,
     won:         this.won,
     keepPlaying: this.keepPlaying

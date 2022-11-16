@@ -22,5 +22,9 @@ urlpatterns = [
     path('create_account', views.create, name='create_account'),
     path('connect', views.connect, name='connect'),
     path('get_game', views.get_game, name='game'),
-    path('test', views.test)
+    path('get_ranking',views.get_ranking),
+    path('2048', views.test),
+    path('get_score',views.score),
+    path('set_best_score',views.best_score),
+    path('list',views.list)
 ]

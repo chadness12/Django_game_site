@@ -74,43 +74,17 @@ WSGI_APPLICATION = 'GameStore.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-   'default': {
+    'default': {
         'ENGINE': "django.db.backends.mysql",
         'NAME': "gamedb",
         'USER': "chad@test-lee",
         'PASSWORD': "dkagh123.",
         'HOST': "test-lee.mysql.database.azure.com",
-        'PORT': "3306",
-        'OPTIONS': {
-            'ssl': {'ssl-ca': '/srv/docker-server/BaltimoreCyberTrustRoot.crt.pem'}
-        } 
+        'PORT': "3306"
     }
 }
 
-'''  
-    'default': {
-        'ENGINE': os.getenv('DATABASE_ENGINE'),
-        'NAME': os.getenv('DATABASE_NAME'),
-        'USER': os.getenv('DATABASE_USERNAME'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
-        'HOST': os.getenv('DATABASE_HOST'),
-        'PORT': os.getenv('DATABASE_PORT'),
-        'OPTIONS': {
-            'ssl': {'ssl-ca': '/srv/docker-server/BaltimoreCyberTrustRoot.crt.pem'}
-        }
-    } 
-    
-    'default': {
-        'ENGINE': "django.db.backends.mysql",
-        'NAME': "gamedb",
-        'USER': "chad@test-lee",
-        'PASSWORD': "dkagh123.",
-        'HOST': "test-lee.mysql.database.azure.com",
-        'PORT': "3306",
-        'OPTIONS': {
-            'ssl': {'ssl-ca': 'C:/Users/chadn/Downloads/BaltimoreCyberTrustRoot.crt.pem'}
-        } 
-    }'''
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
