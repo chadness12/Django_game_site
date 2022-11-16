@@ -82,7 +82,7 @@ DATABASES = {
         'HOST': "test-lee.mysql.database.azure.com",
         'PORT': "3306",
         'OPTIONS': {
-            'ssl': {'ssl-ca': 'C:/Users/chadn/Downloads/BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ssl-ca': '/srv/docker-server/BaltimoreCyberTrustRoot.crt.pem'}
         } 
     }
 }
