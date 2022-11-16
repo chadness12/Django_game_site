@@ -86,7 +86,7 @@ DATABASES = {
         'HOST': os.getenv('DATABASE_HOST'),
         'PORT': os.getenv('DATABASE_PORT'),
         'OPTIONS': {
-            'ssl': {'ssl-ca': './BaltimoreCyberTrustRoot.crt.pem'}
+            'ssl': {'ssl-ca': '/srv/docker-server/BaltimoreCyberTrustRoot.crt.pem'}
         }
     }
 }
