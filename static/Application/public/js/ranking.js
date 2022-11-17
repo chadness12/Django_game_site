@@ -146,15 +146,6 @@ function verifie_password(obj){
 					};
 
 					error.text('');
-					//html = "<div class='form-group'>";
-					//html += `<input type="text" class="token form-control" style="border-right: none !important; border-left: none !important; border-top:none !important; font-family: Poppins !important; font-size: 15px !important;" placeholder="Votre numéro de token ${ops} (4 chiifres)" required="required">`;
-					//html += "</div>";
-					//but = obj.find(" .bouton"); // selectionneko le button
-					//obj.append(html);
-					//obj.append(but);
-					//obj.find(' input[type=button]').attr('value', 'Confirmer Achat');
-					//obj.find(' input[type=button]').removeAttr('onclick');
-					//obj.find(' input[type=button]').click({mail: mail.val(), prod: obj.parents('.modal').find('img').attr('alt'), objet: obj.find(' input[type=button]')}, processAchat);
 					sessionStorage.setItem("user_mail", mail.val());
 					mail.attr('disabled', 'disabled');
 					password.attr('disabled', 'disabled');
@@ -198,31 +189,33 @@ async function processAchat(event){
 $(function() {
 	let csrf_token = $('body').attr('class');
 	$.post(
-		'/get_game',
+		'/get_ranking',
 		{
 			csrfmiddlewaretoken: csrf_token,
 		},
-		list_game
+		get_ranking
 	);
 
-	function list_game(dataP){
-		Mmod = $('#play');
-		buy = $('#acheter');
-		mod = $('#game_model');
-		for (let i=0;i<1;i++){
-			tmp = mod.clone();
-			tmp.attr('id', dataP[0][i][1])
-			tmp.css('display', 'block');
-			tmp.find('img').attr('src', `static/Application/${dataP[0][i][2]}`);
-			tmp.find('h6>a').text(dataP[0][i][1]);
-			tmp.find('#cat').text(dataP[0][i][3]);
-			tmp.find('.price').text(makespace(dataP[0][i][5]) + " Ar");
-			tmp.find('.playB').attr('href','#play'+ dataP[0][i][0]);
-			tmp.find('.achatB').attr('href','#acheter'+ dataP[0][i][0]);
-			tmp.find('.coeurIcon').attr('id', 'coeurIcon' + dataP[0][i][0]);
-			mod.parent().append(tmp);
+	function get_ranking(dataP){
+		table= $('#table');
+		//buy = $('#acheter');
+		//mod = $('#game_model');
+		//console.log(table);
+		console.log(dataP);
+		for (let i=0;i<dataP[0].length;i++){
+			tmp = table.clone(); 
+			//tmp = mod.clone();
+			tmp.find('#ranking').text(dataP[0].length-i);
+			tmp.find('#score').text(dataP[0][i][1]);
+			tmp.find('#title').text(dataP[0][i][0]);
+			tmp.find('#name').text(dataP[0][i][2]);
+			console.log(dataP[0][i][1]);
+			console.log(dataP[0][i][2]);
+			console.log(dataP[0][i][0]); 
+			table.after(tmp);
+			//mod.parent().append(tmp); 
 			
-			Mtmp = Mmod.clone();
+			/* Mtmp = Mmod.clone();
 			Mtmp.attr('id', 'play'+dataP[0][i][0]);
 			Mtmp.find('h4').text(dataP[0][i][1]);
 			Mtmp.find('h6').text(dataP[0][i][1]);
@@ -230,9 +223,9 @@ $(function() {
 			Mtmp.find('.text-muted').text(dataP[0][i][3]);
 			Mtmp.find('.pricemodal').text(makespace(dataP[0][i][5]) + " Ar");
 			Mtmp.find('.achatB').attr('href','#acheter'+ dataP[0][i][0]);
-			Mtmp.find('.coeurIcon').attr('id', 'coeurIconModal' + dataP[0][i][0]);
+			Mtmp.find('.coeurIcon').attr('id', 'coeurIconModal' + dataP[0][i][0]); */
 
-			Mmod.after(Mtmp);
+			/* Mmod.after(Mtmp);
 
 			$('#listSearch').append('<option style="color:red;">' + dataP[0][i][1] + '</option>')
 
@@ -242,11 +235,9 @@ $(function() {
 			buyTmp.find('img').attr('alt', dataP[0][i][1]);
 			buyTmp.find('.test').text(dataP[0][i][1]);
 			
-			buy.after(buyTmp);
+			buy.after(buyTmp); */ 
 		}
-		buy.remove();
-		Mmod.remove();
-		mod.remove();
+		table.remove();
 		closeAndPauseEvent();
 	}
 
