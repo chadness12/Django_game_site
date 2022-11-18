@@ -75,19 +75,26 @@ WSGI_APPLICATION = 'GameStore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': "django.db.backends.mysql",
-        'NAME': "gamedb",
-        'USER': "chad@test-lee",
-        'PASSWORD': "dkagh123.",
-        'HOST': "test-lee.mysql.database.azure.com",
-        'PORT': "3306"
+        'ENGINE': os.getenv('DATABASE_ENGINE'),
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USERNAME'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT')
     }
 }
 ''' 'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     } '''
-
+''' 'default': {
+        'ENGINE': "django.db.backends.mysql",
+        'NAME': "gamedb",
+        'USER': "testroot@dbtest-01",
+        'PASSWORD': "dkagh123.",
+        'HOST': "dbtest-01.mysql.database.azure.com",
+        'PORT': "3306"
+    } '''
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
