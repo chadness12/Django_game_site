@@ -80,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': "django.db.backends.mysql",
         'NAME': "gamedb",
-        'USER': "testroot@dbtest-01",
+        'USER': "gamewebadmin@game-web-db",
         'PASSWORD': "dkagh123.",
-        'HOST': "dbtest-01.mysql.database.azure.com",
+        'HOST': "game-web-db.mysql.database.azure.com",
         'PORT': "3306"
     }
 }
